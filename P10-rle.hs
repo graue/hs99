@@ -4,7 +4,6 @@
 
 encode :: (Eq a) => [a] -> [(Int, a)]
 encode [] = []
-encode [x] = [(1, x)]
 encode (x:xs) = let sames = takeWhile (\y -> x == y) (x:xs)
                     numSames = length sames
                 in (numSames, x) : (encode (drop numSames (x:xs)))
